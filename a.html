@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCM sur l'Islam</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            font-weight: bold;
+        }
+        .answers {
+            list-style-type: none;
+            padding: 0;
+        }
+        .answers li {
+            margin: 10px 0;
+        }
+        .answers input {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>QCM sur l'Islam</h1>
+        
+        <form id="quizForm">
+            <div class="question">
+                <p>1. Qui est le dernier prophète dans l'Islam ?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q1" value="a"> Abraham</li>
+                    <li><input type="radio" name="q1" value="b"> Moïse</li>
+                    <li><input type="radio" name="q1" value="c"> Mahomet</li>
+                    <li><input type="radio" name="q1" value="d"> Jésus</li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <p>2. Quel est le livre sacré de l'Islam ?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q2" value="a"> La Torah</li>
+                    <li><input type="radio" name="q2" value="b"> Les Psaumes</li>
+                    <li><input type="radio" name="q2" value="c"> Le Coran</li>
+                    <li><input type="radio" name="q2" value="d"> La Bible</li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <p>3. Quel est le nom de la prière quotidienne obligatoire dans l'Islam ?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q3" value="a"> Salat</li>
+                    <li><input type="radio" name="q3" value="b"> Zakat</li>
+                    <li><input type="radio" name="q3" value="c"> Sawm</li>
+                    <li><input type="radio" name="q3" value="d"> Hajj</li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <p>4. Combien de fois par jour un musulman doit-il prier ?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q4" value="a"> 3</li>
+                    <li><input type="radio" name="q4" value="b"> 5</li>
+                    <li><input type="radio" name="q4" value="c"> 7</li>
+                    <li><input type="radio" name="q4" value="d"> 10</li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <p>5. Quel est le nom du mois sacré pendant lequel les musulmans jeûnent ?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q5" value="a"> Ramadan</li>
+                    <li><input type="radio" name="q5" value="b"> Shawwal</li>
+                    <li><input type="radio" name="q5" value="c"> Dhul-Hijjah</li>
+                    <li><input type="radio" name="q5" value="d"> Muharram</li>
+                </ul>
+            </div>
+
+            <!-- Questions 6 à 20 ici -->
+            
+            <button type="button" class="submit-btn" onclick="submitQuiz()">Soumettre</button>
+        </form>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            var form = document.getElementById('quizForm');
+            var answers = form.querySelectorAll('input[type="radio"]:checked');
+            var score = 0;
+            
+            // Les bonnes réponses pour chaque question (ordre de 1 à 5 pour l'exemple)
+            var correctAnswers = {
+                q1: 'c',
+                q2: 'c',
+                q3: 'a',
+                q4: 'b',
+                q5: 'a'
+            };
+
+            // Vérifier les réponses
+            answers.forEach(function(answer) {
+                var questionId = answer.name;
+                if (correctAnswers[questionId] === answer.value) {
+                    score++;
+                }
+            });
+
+            alert("Votre score est de " + score + " sur 5.");
+        }
+    </script>
+</body>
+</html>
